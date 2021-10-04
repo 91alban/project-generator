@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Generator />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Generator from './components/Generator.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Generator
   }
 }
 </script>
