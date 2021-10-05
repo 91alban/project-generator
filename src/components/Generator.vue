@@ -9,7 +9,7 @@
         <div v-for="skill in skillList" :key="skill.id">
           <div class="field">
             <label class="checkbox">
-              <input type="checkbox" :value="skill.id">
+              <input type="checkbox" v-model="selectedSkills" :value="skill.id">
               {{ skill.skill }}
             </label>
           </div>
@@ -28,6 +28,7 @@ export default {
   setup() {
     const GENERATOR_BASE = 'http://localhost:3000';
     const skillList = ref([]);
+    const selectedSkills = ref([]);
 
     async function getSkillList() {
       const response = await fetch(`${GENERATOR_BASE}/skills`);
@@ -37,13 +38,16 @@ export default {
     getSkillList();
 
     return {
-      skillList
+      skillList,
+      selectedSkills
     }
   }
 }
 </script>
 
 
-<style scoped>
-
+<style scoped lang="scss">
+  label {
+    font-size: 20px;
+  }
 </style>
