@@ -29,17 +29,27 @@ export default {
     const GENERATOR_BASE = 'http://localhost:3000';
     const skillList = ref([]);
     const selectedSkills = ref([]);
+    const filteredAppList = ref([]);
+    let appList = [];
 
     async function getSkillList() {
       const response = await fetch(`${GENERATOR_BASE}/skills`);
       skillList.value = await response.json();
     }
 
+    async function getAppList() {
+      const response = await fetch(`${GENERATOR_BASE}/apps`);
+      appList = await response.json();
+      filteredAppList.value = appList;
+    }
+
     getSkillList();
+    getAppList();
 
     return {
       skillList,
-      selectedSkills
+      selectedSkills,
+      filteredAppList
     }
   }
 }
